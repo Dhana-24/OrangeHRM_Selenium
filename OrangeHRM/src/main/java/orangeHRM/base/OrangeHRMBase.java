@@ -1,42 +1,53 @@
 package orangeHRM.base;
 
+import java.time.Duration;
+
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import orangeHRM.extentReport.ExtentManager;
+import orangeHRM.utils.ReadInput;
 
-import orangeHRM.utils.ReadExcel;
-import orangeHRM.utils.Report;
+public class OrangeHRMBase extends SeleniumBase{
+	
+	SeleniumBase sb = new SeleniumBase();
+	ReadInput read = new ReadInput();
+	public String appURL = read.getAppURL();
+	
+	public WebDriver getDriver() {
 
-public class OrangeHRMBase extends Report{
-	
-	String URL = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
+		return driver;
+	}
 
-	protected RemoteWebDriver driver = null; // if we use static, then it shows error during parallel execution
+
 	
-	public String fileName ="";
 	
-	@DataProvider(name="data")
-	public String[][] dataProvider() {
-		String[][] excelData =ReadExcel.getExcelData(fileName);
-		return excelData;
+	
+	public void setup(String URL) {
+		
+		driver.manage().window().maximize();
+		driver.get(URL);
+		wait = new WebDriverWait(driver,Duration.ofSeconds(maxWaitTime));
 	}
 	
-	
-	@BeforeMethod
+	@BeforeSuite
 	public void startApp() throws InterruptedException {
 		
 		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get(URL);
-		Thread.sleep(3000);
+		setup(appURL);
+		
 	}
 	
-	@AfterMethod
+	@AfterSuite
 	public void closeApp() {
-		driver.quit();
+		
+		sb.quit();
+		ExtentManager.extentReports.flush();
+		
 	}
+	
 	
 	
 }

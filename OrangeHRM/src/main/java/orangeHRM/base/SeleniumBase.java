@@ -4,9 +4,11 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Set;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -21,17 +23,10 @@ public class SeleniumBase implements SeleniumAPI{
 	
 	long timeOuts = 30;
 	long maxWaitTime = 10;
-	RemoteWebDriver driver = null;
-	WebDriverWait wait = null;
+	public static WebDriver driver = null;
+	public static WebDriverWait wait = null;
 
-	@Override
-	public void setup(String URL) {
-		
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get(URL);
-		wait = new WebDriverWait(driver,Duration.ofSeconds(maxWaitTime));
-	}
+	 
 
 	@Override
 	public void setup(Browser browserName, String URL) {
@@ -108,7 +103,7 @@ public class SeleniumBase implements SeleniumAPI{
 		driver.switchTo().window(list.get(i));
 	}
 
-	// TODO: function to check if the dropdown is selected? 
+	// TODO: function to check if the drop down is selected? 
 	@Override
 	public void selectValue(WebElement ele, String value) {
 		WebElement element = isElementClickable(ele);
@@ -152,6 +147,8 @@ public class SeleniumBase implements SeleniumAPI{
 		
 		try {
 			WebElement element = isElementClickable(ele);
+			element.click();
+			element.clear();
 			element.sendKeys(input);
 		} catch (NullPointerException e) {
 			System.out.println("Element might be null =>"+e.getMessage());
@@ -161,6 +158,8 @@ public class SeleniumBase implements SeleniumAPI{
 		}
 		
 	}
+	
+
 	
 	public WebElement typeEnter(WebElement ele,String input, Keys keys) {
 		
@@ -192,11 +191,21 @@ public class SeleniumBase implements SeleniumAPI{
 	}
 
 	@Override
-	public Boolean isDisplayed(WebElement ele) {
+	public Boolean isDisplayed(WebElement ele) throws InterruptedException {
 		// TODO Auto-generated method stub
-		return ele.isDisplayed();
+		wait = new WebDriverWait(driver,Duration.ofSeconds(maxWaitTime));
+		ele = wait.until(ExpectedConditions.visibilityOf(ele));
+		Thread.sleep(3000);
+		return  ele.isDisplayed();
 	}
 
+	public void acceptAlert() {
+		
+		Alert alert = driver.switchTo().alert();
+		alert.accept();
+	}
+	
+	
 	
 
 

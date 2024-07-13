@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-07-13T22:51:39 IST" name="OrangeHRMAutomation" finished-at="2024-07-13T22:51:56 IST" duration-ms="16583">
+    <groups>
+      <group name="LoginTest.Login">
+        <method signature="LoginTest.Login([Ljava.lang.String;,java.lang.reflect.Method)[pri:0, instance:orangeHRM.test.LoginTest@4681c175]" name="Login" class="orangeHRM.test.LoginTest"/>
+      </group> <!-- LoginTest.Login -->
+    </groups>
+    <test started-at="2024-07-13T22:51:39 IST" name="OrangeHRMTestRun" finished-at="2024-07-13T22:51:56 IST" duration-ms="16583">
+      <class name="orangeHRM.test.ApplyLeaveTest">
+        <test-method signature="ApplyLeave(java.lang.reflect.Method)[pri:0, instance:orangeHRM.test.ApplyLeaveTest@7ce026d3]" started-at="2024-07-13T22:51:51 IST" name="ApplyLeave" depends-on-groups="LoginTest.Login" finished-at="2024-07-13T22:51:55 IST" duration-ms="4096" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void orangeHRM.test.ApplyLeaveTest.ApplyLeave(java.lang.reflect.Method)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ApplyLeave -->
+      </class> <!-- orangeHRM.test.ApplyLeaveTest -->
+      <class name="orangeHRM.test.AddEmployeeTest">
+        <test-method signature="AddEmployee(java.lang.reflect.Method)[pri:0, instance:orangeHRM.test.AddEmployeeTest@1caa0244]" started-at="2024-07-13T22:51:47 IST" name="AddEmployee" depends-on-groups="LoginTest.Login" finished-at="2024-07-13T22:51:51 IST" duration-ms="4085" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void orangeHRM.test.AddEmployeeTest.AddEmployee(java.lang.reflect.Method)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddEmployee -->
+      </class> <!-- orangeHRM.test.AddEmployeeTest -->
+      <class name="orangeHRM.test.LoginTest">
+        <test-method is-config="true" signature="startApp()[pri:0, instance:orangeHRM.test.LoginTest@4681c175]" started-at="2024-07-13T22:51:25 IST" name="startApp" finished-at="2024-07-13T22:51:39 IST" duration-ms="13783" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startApp -->
+        <test-method signature="Login([Ljava.lang.String;,java.lang.reflect.Method)[pri:0, instance:orangeHRM.test.LoginTest@4681c175]" started-at="2024-07-13T22:51:40 IST" name="Login" data-provider="data" finished-at="2024-07-13T22:51:46 IST" duration-ms="6075" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[Ljava.lang.String;@1491cd6c]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void orangeHRM.test.LoginTest.Login(java.lang.String[],java.lang.reflect.Method) throws java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method is-config="true" signature="closeApp()[pri:0, instance:orangeHRM.test.LoginTest@4681c175]" started-at="2024-07-13T22:51:56 IST" name="closeApp" finished-at="2024-07-13T22:51:57 IST" duration-ms="421" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeApp -->
+      </class> <!-- orangeHRM.test.LoginTest -->
+    </test> <!-- OrangeHRMTestRun -->
+  </suite> <!-- OrangeHRMAutomation -->
+</testng-results>

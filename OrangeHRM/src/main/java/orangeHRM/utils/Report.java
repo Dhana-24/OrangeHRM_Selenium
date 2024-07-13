@@ -38,6 +38,7 @@ public class Report {
 	@BeforeClass
 	void createTest() {
 		test = extent.createTest(desc);
+		
 		test.assignAuthor(author);
 		test.assignCategory(category);
 	}

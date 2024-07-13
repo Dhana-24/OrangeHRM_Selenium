@@ -1,5 +1,6 @@
 package orangeHRM.base;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public interface SeleniumAPI {
@@ -11,7 +12,7 @@ public interface SeleniumAPI {
 	 * @exception NullPointerException, URLMalfunction
 	 */
 	//TODO:
-	void setup(String URL);
+	//void setup(String URL);
 	
 	/**
 	 * This method will launch the chrome browser with the given url
@@ -45,14 +46,13 @@ public interface SeleniumAPI {
 	
 	void click(WebElement ele);
 	
-	
 	void appendText(WebElement ele,String text);
 	
 	String getTitle();
 	
 	String getURL();
 	
-	Boolean isDisplayed(WebElement ele);
+	Boolean isDisplayed(WebElement ele) throws InterruptedException;
 
 	void type(WebElement element, String input);
 	

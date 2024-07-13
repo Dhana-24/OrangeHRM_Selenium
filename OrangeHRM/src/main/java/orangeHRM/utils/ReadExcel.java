@@ -11,9 +11,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class ReadExcel {
 
 	public static String[][] getExcelData(String fileName)  {
-		// TODO Auto-generated method stub
 		
-		//String fileLocation = "./test-data/login.xlsx";
 		XSSFWorkbook wbook = null;
 		try {
 			wbook = new XSSFWorkbook("./data/"+fileName+".xlsx");
