@@ -46,7 +46,7 @@ public interface SeleniumAPI {
 	String getURL(String expectedURL);
 	
 	//**********************This function checks whether the given element is displayed*******************
-	Boolean isDisplayed(WebElement ele) throws InterruptedException;
+	Boolean isDisplayed(WebElement ele,String elementName) throws InterruptedException;
 
 	//**********************This function types the given text in the given field*************************
 	void type(WebElement element, String input, String fieldName);

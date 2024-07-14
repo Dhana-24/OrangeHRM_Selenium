@@ -51,12 +51,6 @@ public class LoginTest extends OrangeHRMBase {
 		getTest().log(Status.PASS,"Login is successful.");
 		
 
-		/*try {
-			Assert.assertEquals(driver.getTitle(), expectedTitle);
-			reportPass("Actual Title : " + driver.getTitle() + " - equals to Expected Title : " + expectedTitle);
-		} catch (Exception e) {
-			reportFail(e.getMessage());
-		}*/
 		
 	}
 	

@@ -24,7 +24,7 @@ public class DashboardPage extends SeleniumBase{
 	
 	public Boolean isUserLoggedIn() throws InterruptedException {
 		
-		return isDisplayed(textForLoginValidation);
+		return isDisplayed(textForLoginValidation,"Dashboard");
 	}
 	
 	public ApplyLeavePage clickLeaveMenu() {

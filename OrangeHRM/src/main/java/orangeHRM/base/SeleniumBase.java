@@ -220,13 +220,13 @@ public class SeleniumBase implements SeleniumAPI{
 	}
 
 	@Override
-	public Boolean isDisplayed(WebElement ele) throws InterruptedException {
+	public Boolean isDisplayed(WebElement ele,String elementName) throws InterruptedException {
 		
 		try {
 			wait = new WebDriverWait(driver,Duration.ofSeconds(maxWaitTime));
 			ele = wait.until(ExpectedConditions.visibilityOf(ele));
 			Thread.sleep(3000);
-			getTest().log(Status.PASS, "Expected element is displayed");
+			getTest().log(Status.PASS, elementName+" is displayed");
 		} catch (InterruptedException e) {
 			
 			System.out.println("Element might be null =>"+e.getMessage());
