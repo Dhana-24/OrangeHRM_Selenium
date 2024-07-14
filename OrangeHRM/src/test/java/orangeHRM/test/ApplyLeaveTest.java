@@ -15,7 +15,7 @@ import orangeHRM.pages.ApplyLeavePage;
 public class ApplyLeaveTest extends OrangeHRMBase{
 
 	@Test(dependsOnGroups = {"LoginTest.Login"})
-	public void ApplyLeave(Method method) {
+	public void ApplyLeave(Method method) throws InterruptedException {
 		
 		startTest(method.getName(), "Apply leave");
 		

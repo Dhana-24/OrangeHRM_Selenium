@@ -58,11 +58,12 @@ public class ApplyLeavePage extends SeleniumBase{
 		LocalDate newDate = date.plusDays(30);
 		
 		String leaveDate = newDate.format(DateTimeFormatter.ofPattern("yyyy-dd-MM")) ;
-		type(leaveDateField,leaveDate);
+		type(leaveDateField,leaveDate,"Leave Date");
 	}
 	
-	public void clickApply() {
+	public void clickApply() throws InterruptedException {
 		
 		click(applyBtn);
+		Thread.sleep(1000);
 	}
 }

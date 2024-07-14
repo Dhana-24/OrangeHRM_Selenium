@@ -5,19 +5,18 @@ import java.util.ArrayList;
 import java.util.Set;
 
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import static orangeHRM.extentReport.ExtentTestManager.getTest;
+
+import com.aventstack.extentreports.Status;
 
 public class SeleniumBase implements SeleniumAPI{
 	
@@ -25,39 +24,6 @@ public class SeleniumBase implements SeleniumAPI{
 	long maxWaitTime = 10;
 	public static WebDriver driver = null;
 	public static WebDriverWait wait = null;
-
-	 
-
-	@Override
-	public void setup(Browser browserName, String URL) {
-		
-		
-		try {
-			switch (browserName) {
-			case CHROME:
-				driver = new ChromeDriver();
-				break;
-			case FIREFOX:
-				driver = new FirefoxDriver();
-				break;
-			case EDGE:
-				driver = new EdgeDriver();
-				break;
-			default:
-				System.err.println("Driver is not defined");
-				break;
-			}
-		} catch (NoSuchElementException e) {
-			System.err.println("Element not found =>"+e.getMessage());
-		}catch(WebDriverException e) {
-			System.err.println(e.getMessage());
-		}catch(Exception e) {
-			System.err.println(e.getMessage());
-		}
-		driver.manage().window().maximize();
-		driver.get(URL);
-		wait = new WebDriverWait(driver,Duration.ofSeconds(maxWaitTime));
-	}
 
 	@Override
 	public void close() {
@@ -70,140 +36,218 @@ public class SeleniumBase implements SeleniumAPI{
 		
 	}
 
-	public WebElement element(Locators type, String value) {
-		
-		try {
-			switch (type) {
-			case ID:
-				return driver.findElement(By.id(value));
-			case NAME:
-				return driver.findElement(By.name(value));
-			case XPATH:
-				return driver.findElement(By.xpath(value));
-			case LINK:
-				return driver.findElement(By.linkText(value));
-			default:
-				break;
-			}
-		} catch (NullPointerException e) {
-			System.out.println("Element might be null =>"+e.getMessage());
-			throw new NullPointerException("Element not found");
-		}catch (NoSuchElementException e) {
-			
-			System.out.println("Element might be null =>"+e.getMessage());
-		}
-		return null;
-	}
-
 	@Override
 	public void switchToWindow(int i) {
 		
-		Set<String> windowHandles = driver.getWindowHandles();
-		ArrayList<String> list = new ArrayList<String>(windowHandles);
-		driver.switchTo().window(list.get(i));
+		try {
+			Set<String> windowHandles = driver.getWindowHandles();
+			ArrayList<String> list = new ArrayList<String>(windowHandles);
+			driver.switchTo().window(list.get(i));
+			getTest().log(Status.PASS, "Switched successfully to expected window");
+		}catch (Exception e) {
+			System.out.println("Exception would have occured =>"+e.getMessage());
+		}
 	}
 
-	// TODO: function to check if the drop down is selected? 
+
 	@Override
 	public void selectValue(WebElement ele, String value) {
-		WebElement element = isElementClickable(ele);
-		new Select(element).selectByValue(value);
+		try {
+			WebElement element = isElementClickable(ele);
+			new Select(element).selectByValue(value);
+			getTest().log(Status.PASS, "Expected value in dropdown is selected.");
+		}catch (NullPointerException e) {
+			System.out.println("Element might be null =>"+e.getMessage());
+			getTest().log(Status.FAIL, e.getMessage());
+		}catch (NoSuchElementException e) {
+			System.out.println("Element might be null =>"+e.getMessage());
+			getTest().log(Status.FAIL, e.getMessage());
+		}
 		
 	}
 
 	@Override
 	public void selectText(WebElement ele, String text) {
-		WebElement element = isElementClickable(ele);
-		new Select(element).selectByVisibleText(text);
+		try {
+			WebElement element = isElementClickable(ele);
+			new Select(element).selectByVisibleText(text);
+			getTest().log(Status.PASS, "Input is typed");
+		} catch (NullPointerException e) {
+			System.out.println("Element might be null =>"+e.getMessage());
+			getTest().log(Status.FAIL, e.getMessage());
+		}catch (NoSuchElementException e) {
+			System.out.println("Element might be null =>"+e.getMessage());
+			getTest().log(Status.FAIL, e.getMessage());
+		}
 		
 	}
 
 	@Override
 	public void selectIndex(WebElement ele, int position) {
-		WebElement element = isElementClickable(ele);
-		new Select(element).selectByIndex(position);
+		try {
+			WebElement element = isElementClickable(ele);
+			new Select(element).selectByIndex(position);
+			getTest().log(Status.PASS, "Expected value in dropdown is selected.");
+		} catch (NullPointerException e) {
+			System.out.println("Element might be null =>"+e.getMessage());
+			getTest().log(Status.FAIL, e.getMessage());
+		}catch (NoSuchElementException e) {
+			System.out.println("Element might be null =>"+e.getMessage());
+			getTest().log(Status.FAIL, e.getMessage());
+		}
 	}
 	
+	@Override
 	public void isDropdownSelected(WebElement ele) {
-		ele.isSelected();
+		try {
+			ele.isSelected();
+			getTest().log(Status.PASS, "Expected value is selected.");
+		} catch (NullPointerException e) {
+			System.out.println("Element might be null =>"+e.getMessage());
+			getTest().log(Status.FAIL, e.getMessage());
+		}catch (NoSuchElementException e) {
+			System.out.println("Element might be null =>"+e.getMessage());
+			getTest().log(Status.FAIL, e.getMessage());
+		}
 		
 	}
 
 	@Override
 	public void click(WebElement ele) {
-		WebElement element = isElementClickable(ele);
-		element.click();
-		
+		try {
+			WebElement element = isElementClickable(ele);
+			element.click();
+		} catch (NullPointerException e) {
+			System.out.println("Element might be null =>"+e.getMessage());
+			getTest().log(Status.FAIL, e.getMessage());
+		}catch (NoSuchElementException e) {
+			System.out.println("Element might be null =>"+e.getMessage());
+			getTest().log(Status.FAIL, e.getMessage());
+		}
 	}
 
 	private WebElement isElementClickable(WebElement ele) {
-		WebElement element = wait.withMessage("Element is not visible").
-				until(ExpectedConditions.elementToBeClickable(ele));
+		WebElement element = wait.withMessage("Element is not visible").until(ExpectedConditions.elementToBeClickable(ele));
 		return element;
 	}
 
 	@Override
-	public void type(WebElement ele, String input) {
+	public void type(WebElement ele, String input, String fieldName) {
 		
 		try {
 			WebElement element = isElementClickable(ele);
 			element.click();
 			element.clear();
 			element.sendKeys(input);
+			getTest().log(Status.PASS, fieldName+" is entered");
 		} catch (NullPointerException e) {
 			System.out.println("Element might be null =>"+e.getMessage());
+			getTest().log(Status.FAIL, e.getMessage());
 		}catch (NoSuchElementException e) {
-			
 			System.out.println("Element might be null =>"+e.getMessage());
+			getTest().log(Status.FAIL, e.getMessage());
 		}
 		
 	}
 	
 
-	
-	public WebElement typeEnter(WebElement ele,String input, Keys keys) {
+	@Override
+	public void typeEnter(WebElement ele,String input, Keys keys) {
 		
-		WebElement webElement = null;
-		webElement = wait.until(ExpectedConditions.elementToBeClickable(ele));
-		webElement.sendKeys(input,keys);
-		return webElement;
+		WebElement webElement;
+		try {
+			webElement = wait.until(ExpectedConditions.elementToBeClickable(ele));
+			webElement.sendKeys(input,keys);
+			getTest().log(Status.PASS, "Input is typed");
+		} catch (NullPointerException e) {
+			System.out.println("Element might be null =>"+e.getMessage());
+			getTest().log(Status.FAIL, e.getMessage());
+		}catch (NoSuchElementException e) {
+			System.out.println("Element might be null =>"+e.getMessage());
+			getTest().log(Status.FAIL, e.getMessage());
+		}
 		
 		
-	}
-
-
-	public void appendText(WebElement ele, String text) {
-		// TODO Auto-generated method stub
-		WebElement element = isElementClickable(ele);
-		element.sendKeys(text);
+		
 	}
 
 	@Override
-	public String getTitle() {
-		// TODO Auto-generated method stub
+	public void appendText(WebElement ele, String text) {
+		
+		try {
+			WebElement element = isElementClickable(ele);
+			element.sendKeys(text);
+			getTest().log(Status.PASS, "Input is typed");
+		} catch (NullPointerException e) {
+			System.out.println("Element might be null =>"+e.getMessage());
+			getTest().log(Status.FAIL, e.getMessage());
+		}catch (NoSuchElementException e) {
+			System.out.println("Element might be null =>"+e.getMessage());
+			getTest().log(Status.FAIL, e.getMessage());
+		}
+		
+	}
+
+	@Override
+	public String getTitle(String expectedTitle) {
+	
+		try {
+			Assert.assertEquals(driver.getTitle(), expectedTitle);
+			getTest().log(Status.PASS, "Actual Title : " + driver.getTitle() + " - equals to Expected Title : " + expectedTitle);
+		}catch (NullPointerException e) {
+			System.out.println("Element might be null =>"+e.getMessage());
+			getTest().log(Status.FAIL, e.getMessage());
+		}catch (NoSuchElementException e) {
+			System.out.println("Element might be null =>"+e.getMessage());
+			getTest().log(Status.FAIL, e.getMessage());
+		}
 		return driver.getTitle();
 	}
 
 	@Override
-	public String getURL() {
-		// TODO Auto-generated method stub
+	public String getURL(String expectedURL) {
+		try {
+			Assert.assertEquals(driver.getTitle(), expectedURL);
+			getTest().log(Status.PASS, "Actual URL : " + driver.getCurrentUrl() + " - equals to Expected URL : " + expectedURL);
+		}catch (NullPointerException e) {
+			System.out.println("Element might be null =>"+e.getMessage());
+			getTest().log(Status.FAIL, e.getMessage());
+		}catch (NoSuchElementException e) {
+			System.out.println("Element might be null =>"+e.getMessage());
+			getTest().log(Status.FAIL, e.getMessage());
+		}
 		return driver.getCurrentUrl();
 	}
 
 	@Override
 	public Boolean isDisplayed(WebElement ele) throws InterruptedException {
-		// TODO Auto-generated method stub
-		wait = new WebDriverWait(driver,Duration.ofSeconds(maxWaitTime));
-		ele = wait.until(ExpectedConditions.visibilityOf(ele));
-		Thread.sleep(3000);
+		
+		try {
+			wait = new WebDriverWait(driver,Duration.ofSeconds(maxWaitTime));
+			ele = wait.until(ExpectedConditions.visibilityOf(ele));
+			Thread.sleep(3000);
+			getTest().log(Status.PASS, "Expected element is displayed");
+		} catch (InterruptedException e) {
+			
+			System.out.println("Element might be null =>"+e.getMessage());
+			getTest().log(Status.FAIL, e.getMessage());
+		}
 		return  ele.isDisplayed();
 	}
 
+	@Override
 	public void acceptAlert() {
 		
-		Alert alert = driver.switchTo().alert();
-		alert.accept();
+		try {
+			Alert alert = driver.switchTo().alert();
+			alert.accept();
+			getTest().log(Status.PASS, "Page Alert Accepted");
+		} catch (Exception e) {
+			getTest().log(Status.FAIL, e.getMessage());
+		}
 	}
+
+	
 	
 	
 	

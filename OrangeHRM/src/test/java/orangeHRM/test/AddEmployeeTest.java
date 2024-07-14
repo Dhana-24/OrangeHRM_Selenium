@@ -15,7 +15,7 @@ import static orangeHRM.extentReport.ExtentTestManager.getTest;
 public class AddEmployeeTest extends OrangeHRMBase{
 	
 	@Test(dependsOnGroups = {"LoginTest.Login"})
-	public void AddEmployee(Method method) {
+	public void AddEmployee(Method method) throws InterruptedException {
 		
 		startTest(method.getName(), "Add employee name");
 		

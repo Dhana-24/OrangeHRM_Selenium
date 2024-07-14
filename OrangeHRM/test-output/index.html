@@ -103,12 +103,12 @@
                     <div class="method-list-content passed suite-OrangeHRMAutomation">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-OrangeHRMAutomation" title="orangeHRM.test.AddEmployeeTest" class="method navigator-link" hash-for-method="AddEmployee(public void orangeHRM.test.AddEmployeeTest.AddEmployee(java.lang.reflect.Method))">AddEmployee(public void orangeHRM.test.AddEmployeeTest.AddEmployee(java.lang.reflect.Method))</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-OrangeHRMAutomation" title="orangeHRM.test.AddEmployeeTest" class="method navigator-link" hash-for-method="AddEmployee(public void orangeHRM.test.AddEmployeeTest.AddEmployee(java.lang.reflect.Method) throws java.lang.In...)">AddEmployee(public void orangeHRM.test.AddEmployeeTest.AddEmployee(java.lang.reflect.Method) throws java.lang.In...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-OrangeHRMAutomation" title="orangeHRM.test.ApplyLeaveTest" class="method navigator-link" hash-for-method="ApplyLeave(public void orangeHRM.test.ApplyLeaveTest.ApplyLeave(java.lang.reflect.Method))">ApplyLeave(public void orangeHRM.test.ApplyLeaveTest.ApplyLeave(java.lang.reflect.Method))</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-OrangeHRMAutomation" title="orangeHRM.test.ApplyLeaveTest" class="method navigator-link" hash-for-method="ApplyLeave(public void orangeHRM.test.ApplyLeaveTest.ApplyLeave(java.lang.reflect.Method) throws java.lang.Inte...)">ApplyLeave(public void orangeHRM.test.ApplyLeaveTest.ApplyLeave(java.lang.reflect.Method) throws java.lang.Inte...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -131,15 +131,15 @@
           <div class="suite-OrangeHRMAutomation-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">orangeHRM.test.ApplyLeaveTest</span>
+              <span class="class-name">orangeHRM.test.AddEmployeeTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="ApplyLeave(public void orangeHRM.test.ApplyLeaveTest.ApplyLeave(java.lang.reflect.Method))">
-                  </a> <!-- ApplyLeave(public void orangeHRM.test.ApplyLeaveTest.ApplyLeave(java.lang.reflect.Method)) -->
-                  <span class="method-name">ApplyLeave</span>
-                  <span class="parameters">(public void orangeHRM.test.ApplyLeaveTest.ApplyLeave(java.lang.reflect.Method))</span>
+                  <a name="AddEmployee(public void orangeHRM.test.AddEmployeeTest.AddEmployee(java.lang.reflect.Method) throws java.lang.In...)">
+                  </a> <!-- AddEmployee(public void orangeHRM.test.AddEmployeeTest.AddEmployee(java.lang.reflect.Method) throws java.lang.In...) -->
+                  <span class="method-name">AddEmployee</span>
+                  <span class="parameters">(public void orangeHRM.test.AddEmployeeTest.AddEmployee(java.lang.reflect.Method) throws java.lang.InterruptedException)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -163,15 +163,15 @@
           <div class="suite-OrangeHRMAutomation-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">orangeHRM.test.AddEmployeeTest</span>
+              <span class="class-name">orangeHRM.test.ApplyLeaveTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="AddEmployee(public void orangeHRM.test.AddEmployeeTest.AddEmployee(java.lang.reflect.Method))">
-                  </a> <!-- AddEmployee(public void orangeHRM.test.AddEmployeeTest.AddEmployee(java.lang.reflect.Method)) -->
-                  <span class="method-name">AddEmployee</span>
-                  <span class="parameters">(public void orangeHRM.test.AddEmployeeTest.AddEmployee(java.lang.reflect.Method))</span>
+                  <a name="ApplyLeave(public void orangeHRM.test.ApplyLeaveTest.ApplyLeave(java.lang.reflect.Method) throws java.lang.Inte...)">
+                  </a> <!-- ApplyLeave(public void orangeHRM.test.ApplyLeaveTest.ApplyLeave(java.lang.reflect.Method) throws java.lang.Inte...) -->
+                  <span class="method-name">ApplyLeave</span>
+                  <span class="parameters">(public void orangeHRM.test.ApplyLeaveTest.ApplyLeave(java.lang.reflect.Method) throws java.lang.InterruptedException)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -186,6 +186,7 @@
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite name=&quot;OrangeHRMAutomation&quot; guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;2&quot;&gt;
+  &lt;parameter name=&quot;Browser&quot; value=&quot;CHROME&quot;/&gt;
   &lt;listeners&gt;
     &lt;listener class-name=&quot;orangeHRM.listeners.TestListener&quot;/&gt;
     &lt;listener class-name=&quot;orangeHRM.listeners.AnnotationTransformer&quot;/&gt;
@@ -258,15 +259,15 @@ data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'Login')
 data.setCell(0, 2, 'orangeHRM.test.LoginTest')
-data.setCell(0, 3, 6075);
+data.setCell(0, 3, 5496);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'ApplyLeave')
-data.setCell(1, 2, 'orangeHRM.test.ApplyLeaveTest')
-data.setCell(1, 3, 4096);
+data.setCell(1, 1, 'AddEmployee')
+data.setCell(1, 2, 'orangeHRM.test.AddEmployeeTest')
+data.setCell(1, 3, 4737);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'AddEmployee')
-data.setCell(2, 2, 'orangeHRM.test.AddEmployeeTest')
-data.setCell(2, 3, 4085);
+data.setCell(2, 1, 'ApplyLeave')
+data.setCell(2, 2, 'orangeHRM.test.ApplyLeaveTest')
+data.setCell(2, 3, 4649);
 window.suiteTableData['OrangeHRMAutomation']= { tableData: data, tableDiv: 'times-div-OrangeHRMAutomation'}
 return data;
 }
@@ -290,16 +291,16 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">orangeHRM.test.ApplyLeaveTest</span>
+              <span class="ignored-class-name">orangeHRM.test.AddEmployeeTest</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">startApp</span>
-                <br/>
                 <span class="ignored-method-name">closeApp</span>
+                <br/>
+                <span class="ignored-method-name">startApp</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
             <div class="ignored-class-div">
-              <span class="ignored-class-name">orangeHRM.test.AddEmployeeTest</span>
+              <span class="ignored-class-name">orangeHRM.test.ApplyLeaveTest</span>
               <div class="ignored-methods-div">
                 <span class="ignored-method-name">closeApp</span>
                 <br/>
@@ -317,33 +318,33 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">orangeHRM.test.LoginTest</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
-                <span class="method-name">startApp</span>
+                <span class="method-name">startApp(CHROME)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="test-method">
                 <span class="method-name">Login([admin, admin123], public void orangeHRM.test.LoginTest.Login(java.lang.String[],java.lang.reflect.M...)</span>
-                <span class="method-start">15094 ms</span>
+                <span class="method-start">22340 ms</span>
               </div> <!-- test-method -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">orangeHRM.test.AddEmployeeTest</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">AddEmployee(public void orangeHRM.test.AddEmployeeTest.AddEmployee(java.lang.reflect.Method))</span>
-                <span class="method-start">21481 ms</span>
+                <span class="method-name">AddEmployee(public void orangeHRM.test.AddEmployeeTest.AddEmployee(java.lang.reflect.Method) throws java.lang.In...)</span>
+                <span class="method-start">27990 ms</span>
               </div> <!-- test-method -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">orangeHRM.test.ApplyLeaveTest</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">ApplyLeave(public void orangeHRM.test.ApplyLeaveTest.ApplyLeave(java.lang.reflect.Method))</span>
-                <span class="method-start">25885 ms</span>
+                <span class="method-name">ApplyLeave(public void orangeHRM.test.ApplyLeaveTest.ApplyLeave(java.lang.reflect.Method) throws java.lang.Inte...)</span>
+                <span class="method-start">32916 ms</span>
               </div> <!-- test-method -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">orangeHRM.test.LoginTest</div> <!-- chronological-class-name -->
               <div class="configuration-suite after">
                 <span class="method-name">closeApp</span>
-                <span class="method-start">30908 ms</span>
+                <span class="method-start">38144 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

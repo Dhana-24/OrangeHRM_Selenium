@@ -26,13 +26,13 @@ public class LoginPage extends SeleniumBase{
 
 	public LoginPage enterUserName(String userName) {
 
-		type(userNameField,userName);
+		type(userNameField,userName,"User Name");
 		return this;
 	}
 
 	public LoginPage enterPassword(String password) {
 
-		type(passwordField,password);
+		type(passwordField,password,"Password");
 		return this;
 	}
 

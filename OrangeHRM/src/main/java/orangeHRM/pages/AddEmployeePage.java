@@ -30,7 +30,7 @@ public class AddEmployeePage extends SeleniumBase{
 	@FindBy(xpath="//input[@placeholder='Last Name']")
 	private WebElement lastNameField;
 
-	@FindBy(xpath="(//input[@class='oxd-input oxd-input--active'])[2]")
+	@FindBy(xpath="(//label[contains(text(),'Employee Id')]//following::input)[1]")
 	private WebElement employeeIDField;
 	
 	@FindBy(xpath="//button[@type='submit']")
@@ -66,21 +66,22 @@ public class AddEmployeePage extends SeleniumBase{
 
 	public void enterFirstName() {
 
-		type(firstNameField,"FirstName "+generateRandomString(7));
+		type(firstNameField,"FirstName "+generateRandomString(7),"First Name");
 	}
 
 	public void enterLastName() {
 
-		type(lastNameField,"LastName "+generateRandomString(7));
+		type(lastNameField,"LastName "+generateRandomString(7),"Last Name");
 	}
 
 	public void enterEmployeeID() {
 		
-		type(employeeIDField,generateRandomString(5));
+		type(employeeIDField,generateRandomString(5),"Employee ID");
 	}
 	
-	public void clickSave() {
+	public void clickSave() throws InterruptedException {
 		
 		click(submitBtn);
+		Thread.sleep(1000);
 	}
 }
