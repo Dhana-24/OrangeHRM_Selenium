@@ -1,6 +1,10 @@
 package orangeHRM.base;
 
+import java.io.IOException;
 import java.time.Duration;
+
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
 
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +19,8 @@ import org.testng.annotations.Parameters;
 
 import orangeHRM.extentReport.ExtentManager;
 import orangeHRM.utils.ReadInput;
+import orangeHRM.utils.SendMail;
+
 
 public class OrangeHRMBase extends SeleniumBase{
 	
@@ -71,11 +77,13 @@ public class OrangeHRMBase extends SeleniumBase{
 	}
 	
 	@AfterSuite
-	public void closeApp() {
+	public void closeApp() throws AddressException, MessagingException, IOException {
 		
 		sb.close();
 		sb.quit();
 		ExtentManager.extentReports.flush();
+		SendMail sendMail = new SendMail();
+		sendMail.sendMail();
 		
 	}
 	

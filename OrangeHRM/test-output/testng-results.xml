@@ -2,15 +2,15 @@
 <testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-07-14T14:14:23 IST" name="OrangeHRMAutomation" finished-at="2024-07-14T14:14:40 IST" duration-ms="16993">
+  <suite started-at="2024-07-20T23:45:44 IST" name="OrangeHRMAutomation" finished-at="2024-07-20T23:46:02 IST" duration-ms="17690">
     <groups>
       <group name="LoginTest.Login">
-        <method signature="LoginTest.Login([Ljava.lang.String;,java.lang.reflect.Method)[pri:0, instance:orangeHRM.test.LoginTest@2767e23c]" name="Login" class="orangeHRM.test.LoginTest"/>
+        <method signature="LoginTest.Login([Ljava.lang.String;,java.lang.reflect.Method)[pri:0, instance:orangeHRM.test.LoginTest@6c284af]" name="Login" class="orangeHRM.test.LoginTest"/>
       </group> <!-- LoginTest.Login -->
     </groups>
-    <test started-at="2024-07-14T14:14:23 IST" name="OrangeHRMTestRun" finished-at="2024-07-14T14:14:40 IST" duration-ms="16993">
+    <test started-at="2024-07-20T23:45:44 IST" name="OrangeHRMTestRun" finished-at="2024-07-20T23:46:02 IST" duration-ms="17690">
       <class name="orangeHRM.test.ApplyLeaveTest">
-        <test-method signature="ApplyLeave(java.lang.reflect.Method)[pri:0, instance:orangeHRM.test.ApplyLeaveTest@268f106e]" started-at="2024-07-14T14:14:35 IST" name="ApplyLeave" depends-on-groups="LoginTest.Login" finished-at="2024-07-14T14:14:40 IST" duration-ms="4649" status="PASS">
+        <test-method signature="ApplyLeave(java.lang.reflect.Method)[pri:0, instance:orangeHRM.test.ApplyLeaveTest@2b40ff9c]" started-at="2024-07-20T23:45:57 IST" name="ApplyLeave" depends-on-groups="LoginTest.Login" finished-at="2024-07-20T23:46:02 IST" duration-ms="4459" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -23,7 +23,7 @@
         </test-method> <!-- ApplyLeave -->
       </class> <!-- orangeHRM.test.ApplyLeaveTest -->
       <class name="orangeHRM.test.AddEmployeeTest">
-        <test-method signature="AddEmployee(java.lang.reflect.Method)[pri:0, instance:orangeHRM.test.AddEmployeeTest@5b247367]" started-at="2024-07-14T14:14:30 IST" name="AddEmployee" depends-on-groups="LoginTest.Login" finished-at="2024-07-14T14:14:35 IST" duration-ms="4737" status="PASS">
+        <test-method signature="AddEmployee(java.lang.reflect.Method)[pri:0, instance:orangeHRM.test.AddEmployeeTest@451001e5]" started-at="2024-07-20T23:45:52 IST" name="AddEmployee" depends-on-groups="LoginTest.Login" finished-at="2024-07-20T23:45:57 IST" duration-ms="5172" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -36,7 +36,7 @@
         </test-method> <!-- AddEmployee -->
       </class> <!-- orangeHRM.test.AddEmployeeTest -->
       <class name="orangeHRM.test.LoginTest">
-        <test-method is-config="true" signature="startApp(orangeHRM.base.Browser)[pri:0, instance:orangeHRM.test.LoginTest@2767e23c]" started-at="2024-07-14T14:14:02 IST" name="startApp" finished-at="2024-07-14T14:14:23 IST" duration-ms="20731" status="PASS">
+        <test-method is-config="true" signature="startApp(orangeHRM.base.Browser)[pri:0, instance:orangeHRM.test.LoginTest@6c284af]" started-at="2024-07-20T23:45:32 IST" name="startApp" finished-at="2024-07-20T23:45:44 IST" duration-ms="12186" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -47,11 +47,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startApp -->
-        <test-method signature="Login([Ljava.lang.String;,java.lang.reflect.Method)[pri:0, instance:orangeHRM.test.LoginTest@2767e23c]" started-at="2024-07-14T14:14:24 IST" name="Login" data-provider="data" finished-at="2024-07-14T14:14:30 IST" duration-ms="5496" status="PASS">
+        <test-method signature="Login([Ljava.lang.String;,java.lang.reflect.Method)[pri:0, instance:orangeHRM.test.LoginTest@6c284af]" started-at="2024-07-20T23:45:46 IST" name="Login" data-provider="data" finished-at="2024-07-20T23:45:52 IST" duration-ms="5800" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[Ljava.lang.String;@dc59ec2]]>
+                <![CDATA[[Ljava.lang.String;@71bb8b34]]>
               </value>
             </param>
             <param index="1">
@@ -63,7 +63,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method is-config="true" signature="closeApp()[pri:0, instance:orangeHRM.test.LoginTest@2767e23c]" started-at="2024-07-14T14:14:40 IST" name="closeApp" finished-at="2024-07-14T14:14:41 IST" duration-ms="333" status="PASS">
+        <test-method is-config="true" signature="closeApp()[pri:0, instance:orangeHRM.test.LoginTest@6c284af]" started-at="2024-07-20T23:46:02 IST" name="closeApp" finished-at="2024-07-20T23:46:11 IST" duration-ms="8564" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeApp -->
